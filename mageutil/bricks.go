@@ -27,7 +27,7 @@ func StartBinaries() error {
 			cmd := exec.Command(
 				"C:\\Program Files\\JetBrains\\GoLand 2024.1.4\\plugins\\go-plugin\\lib\\dlv\\windows\\dlv.exe", "exec", binFullPath,
 				"--headless", "--listen=:"+strconv.Itoa(i+788), "--log", "--",
-				args...
+				"-i", strconv.Itoa(i), "-c", OpenIMOutputConfig,
 			)
 			fmt.Printf("Starting %s\n", cmd.String())
 			cmd.Dir = OpenIMOutputHostBin
